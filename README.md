@@ -1,8 +1,5 @@
 # ReadEveryWeek
-Making a personal reading recommender plus blogs account to read more and gamify the experience
-
-# Reading Intelligence System
-
+Making a personal reading recommender plus blogs account to read more and gamify the experience.
 A personal reading system for people who read to think.
 
 This project helps you capture articles, read them deeply, mark what truly mattered,
