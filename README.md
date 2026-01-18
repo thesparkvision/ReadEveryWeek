@@ -14,16 +14,10 @@ It is:
 
 This is not a social product, a feed, or a content platform.
 
----
-
 ## Why this exists
 
-Most read-later tools solve storage.
-Very few help you understand *why* something mattered or *how* it changed you.
+[Read this here](https://github.com/thesparkvision/ReadEveryWeek/blob/main/WhyThisExists.md)
 
-This project treats reading as a thinking process, not a queue.
-
----
 
 ## Core principles
 
@@ -46,13 +40,11 @@ It never blocks core usage and can be disabled entirely.
 This is a private system.
 There are no likes, shares, or engagement pressure.
 
----
 
 ## Core loop
 
 Capture → Read → Mark → Revisit → Reflect
 
----
 
 ## Roadmap
 
@@ -71,7 +63,6 @@ Thin client over the same API.
 ### Phase 5 — Intelligence & Reflection
 Summaries, insights, stats, yearly reflection.
 
----
 
 ## Who this is for
 
@@ -81,7 +72,6 @@ People who:
 - Want ownership of their data
 - Prefer calm tools over noisy platforms
 
----
 
 ## Status
 
