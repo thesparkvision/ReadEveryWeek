@@ -1,44 +1,16 @@
 # ReadEveryWeek
-Making a personal reading recommender plus blogs account to read more and gamify the experience.
-A personal reading system for people who read to think.
+Making a personal reading recommender to read more and gamify the experience.
 
-This project helps you capture articles, read them deeply, mark what truly mattered,
-and reflect on how your reading shapes your thinking over time.
+This project helps one capture articles, read them deeply, mark what truly mattered,
+and reflect on how the reading shaped the thinking over time.
 
 It is:
 - Single-user
 - Private by default
-- Sheet-first
-- AI-optional
-- Calm by design
-
-This is not a social product, a feed, or a content platform.
 
 ## Why this exists
 
 [Read this here](https://github.com/thesparkvision/ReadEveryWeek/blob/main/WhyThisExists.md)
-
-
-## Core principles
-
-### Sheet-first data
-A spreadsheet is always a valid representation of your data.
-You can see everything, edit everything, and leave anytime.
-
-Databases are optimizations — never dependencies.
-
-### Favorites are signals
-Marking something as a Favorite is intentional.
-Favorites carry reasons, engagement, and meaning.
-All reflection and AI features are anchored to Favorites.
-
-### AI is optional and assistive
-AI can summarize, ask questions, and surface patterns.
-It never blocks core usage and can be disabled entirely.
-
-### No feeds, no followers
-This is a private system.
-There are no likes, shares, or engagement pressure.
 
 
 ## Core loop
@@ -63,14 +35,6 @@ Thin client over the same API.
 ### Phase 5 — Intelligence & Reflection
 Summaries, insights, stats, yearly reflection.
 
-
-## Who this is for
-
-People who:
-- Read essays, not just headlines
-- Care about depth over volume
-- Want ownership of their data
-- Prefer calm tools over noisy platforms
 
 
 ## Status
