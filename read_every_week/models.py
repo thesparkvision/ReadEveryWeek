@@ -3,6 +3,10 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any, Dict, Optional
 
+def _parse_bool(value):
+    if value in (True, "TRUE", "true", "True", 1, "1"):
+        return True
+    return False
 
 @dataclass
 class Article:
@@ -29,6 +33,7 @@ class Article:
     word_count: Optional[int] = None
     fetched_at: Optional[str] = None
     last_attempted: Optional[str] = None
+    recommendation_reason: Optional[str] = None
 
     row_number: Optional[int] = field(default=None, repr=False)
 
@@ -37,9 +42,9 @@ class Article:
         return cls(
             title=mapping.get("title", ""),
             url=mapping.get("url", ""),
-            has_read=bool(mapping.get("has_read", False)),
-            worth_revisit=bool(mapping.get("worth_revisit", False)),
-            recommended=bool(mapping.get("recommended", False)),
+            has_read=_parse_bool(mapping.get("has_read")),
+            worth_revisit=_parse_bool(mapping.get("worth_revisit", False)),
+            recommended=_parse_bool(mapping.get("recommended", False)),
             last_recommended_at=mapping.get("last_recommended_at", ""),
             created_at=mapping.get("created_at", ""),
             created_by=mapping.get("created_by", ""),
@@ -83,4 +88,6 @@ class Article:
             d["last_attempted"] = self.last_attempted
         if self.category is not None:
             d["category"] = self.category
+        if self.recommendation_reason is not None:
+            d["recommendation_reason"] = self.recommendation_reason
         return d
