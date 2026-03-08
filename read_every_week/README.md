@@ -22,6 +22,12 @@ The code looks for the following environment variables at runtime:
     "Application Default Credentials" mechanism; the code calls
     `google.auth.default(...)`.
 
+* `RESEND_API_KEY` - for integration with Resend mail service
+
+* `EMAIL_FROM` - for setting the sender's email
+
+* `EMAIL_TO` - for setting the email receiver if for a single user
+
 ### Local development
 
 For a local machine, download a service account key JSON file and set:

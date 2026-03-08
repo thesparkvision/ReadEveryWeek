@@ -5,6 +5,8 @@ import os
 from datetime import datetime, timezone
 from typing import List
 
+from read_every_week.emailer import send_recommendation_email
+
 from . import reading_time, sheet
 from .models import Article
 from .recommendation.engine import recommend_articles
@@ -43,6 +45,18 @@ def run(dry_run: bool = False, retry_errors: bool = False) -> int:
     for article in worth_revisit_articles:
         logger.info("  %s (%s min)", article.title, article.reading_time_min)
 
+    if not primary_articles:
+        logger.info("no recommendations; skipping email")
+        return 0
+
+    logger.info("sending recommendation email")
+
+    email_sent = send_recommendation_email(primary_articles, worth_revisit_articles)
+
+    if not email_sent:
+        logger.error("email failed; aborting update")
+        return 1
+
     now = datetime.now(timezone.utc).isoformat(sep=" ", timespec="seconds")
     updated_by = os.environ.get("UPDATED_BY", "script")
 
@@ -62,7 +76,7 @@ def run(dry_run: bool = False, retry_errors: bool = False) -> int:
     if dry_run:
         logger.info("dry run; would update %d rows", len(articles))
     else:
-        # sheet.apply_updates(articles)
+        sheet.apply_updates(articles)
         logger.info("wrote %d rows", len(articles))
 
     logger.info("pipeline complete")

@@ -1,0 +1,24 @@
+<h2>📖 {{ subject }}</h2>
+
+<ul>
+{% for a in primary %}
+  <li>
+    <a href="{{ a.url }}">{{ a.title }}</a>
+    — {{ a.reading_time_min }} min
+  </li>
+{% endfor %}
+</ul>
+
+<p><strong>Total:</strong> {{ total_minutes }} min</p>
+
+{% if worthies %}
+<h3>Worth revisiting</h3>
+<ul>
+{% for a in worthies %}
+  <li>
+    <a href="{{ a.url }}">{{ a.title }}</a>
+    — {{ a.reading_time_min }} min
+  </li>
+{% endfor %}
+</ul>
+{% endif %}

@@ -7,3 +7,4 @@ lxml
 lxml_html_clean
 readability-lxml
 pytest
+jinja2
