@@ -12,12 +12,47 @@ It is:
 
 [Read this here](https://github.com/thesparkvision/ReadEveryWeek/blob/main/WhyThisExists.md)
 
-
 ## Core loop
 
 Capture → Read → Mark → Revisit → Reflect
 
+## Current Architecture
 
+                ┌─────────────────────┐
+                │   Article Sources   │
+                │ (Hardcoded URLs)    │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │   Python Script     │
+                │  (main.py / cli)    │
+                └──────────┬──────────┘
+                           │
+        ┌──────────────────┼──────────────────┐
+        ▼                  ▼                  ▼
+ ┌──────────────┐  ┌───────────────┐  ┌───────────────┐
+ │ Fetch HTML   │  │ Extract Text  │  │ Reading Time  │
+ │ (requests)   │  │ (article lib) │  │ (words/200)   │
+ └──────────────┘  └───────────────┘  └───────────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │ Email HTML Builder  │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │ Email Sender        │
+                │ (SMTP / API)        │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │  Your Inbox         │
+                │  ReadEveryWeek Mail │
+                └─────────────────────┘
+                
 ## Roadmap
 
 ### Phase 1 — Doc → Sheet/Raindrop → Recommendations
@@ -34,7 +69,6 @@ Thin client over the same API.
 
 ### Phase 5 — Intelligence & Reflection
 Summaries, insights, stats, yearly reflection.
-
 
 
 ## Status
