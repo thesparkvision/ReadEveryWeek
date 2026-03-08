@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install -r requirements.txt
+      - run: pip install -r read_every_week/requirements.txt
 
       - name: Run pipeline
         run: python -m read_every_week.run --write
