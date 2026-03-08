@@ -35,3 +35,5 @@ def run():
     is_dry_run = os.getenv("DRY_RUN", "true").lower() == "true"
     retry_errors = os.getenv("RETRY_ERRORS", "false").lower() == "true"
     pipeline.run(dry_run=is_dry_run, retry_errors=retry_errors)
+
+run()
