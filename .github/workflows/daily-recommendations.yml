@@ -19,7 +19,7 @@ jobs:
       - run: pip install -r read_every_week/requirements.txt
 
       - name: Run pipeline
-        run: python -m read_every_week.run --write
+        run: python -m read_every_week.main --write
         env:
           RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
           EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
