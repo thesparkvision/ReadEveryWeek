@@ -9,6 +9,9 @@ jobs:
   run:
     runs-on: ubuntu-latest
 
+    env:
+      DRY_RUN: ${{ vars.DRY_RUN }}
+
     steps:
       - uses: actions/checkout@v4
 
