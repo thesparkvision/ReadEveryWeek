@@ -20,6 +20,7 @@ DEFAULT_RULES: Dict[str, Dict[str, int]] = {
         "max_total_minutes": 35,
         "max_worth_revisit": 2,
     },
+    "Sunday": {"max_count": 2, "max_total_minutes": 20},
 }
 
 
