@@ -26,3 +26,6 @@ The code looks for the following environment variables at runtime:
 
 * `EMAIL_TO` - for setting the email receiver if for a single user
 
+## Link to the recommendation workflow
+
+https://github.com/thesparkvision/ReadEveryWeek/blob/main/read_every_week/recommendation/workflow.md
