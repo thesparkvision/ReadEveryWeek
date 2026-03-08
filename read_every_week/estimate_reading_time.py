@@ -2,6 +2,7 @@
 """Thin entrypoint for the ReadEveryWeek reading‑time estimator."""
 
 import argparse
+import os
 import logging
 
 from read_every_week import pipeline
@@ -15,9 +16,11 @@ def main() -> None:
                         help="re‑attempt URLs that previously failed")
     args = parser.parse_args()
 
+    log_level = os.getenv("LOG_LEVEL", "WARNING").upper()
+
     logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s %(levelname)s %(message)s\n",
+        level=getattr(logging, log_level, logging.WARNING),
+        format="%(asctime)s %(levelname)s %(message)s",
     )
 
     pipeline.run(dry_run=not args.write, retry_errors=args.retry_errors)

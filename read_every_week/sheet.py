@@ -7,9 +7,17 @@ from google.auth import default
 
 from .models import Article
 
+import os
+import json
+import gspread
+from google.oauth2.service_account import Credentials
 
 def _authenticate() -> gspread.Client:
-    creds, _ = default(scopes=["https://www.googleapis.com/auth/spreadsheets"])
+    service_account_info = json.loads(os.environ["GOOGLE_SERVICE_ACCOUNT_JSON"])
+    creds = Credentials.from_service_account_info(
+        service_account_info,
+        scopes=["https://www.googleapis.com/auth/spreadsheets"]
+    )
     return gspread.authorize(creds)
 
 

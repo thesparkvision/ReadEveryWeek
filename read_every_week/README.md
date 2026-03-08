@@ -17,10 +17,8 @@ The code looks for the following environment variables at runtime:
     if not supplied.
   - Example: `export SHEET_NAME="Links"`
 
-* `GOOGLE_APPLICATION_CREDENTIALS` (recommended for cloud service accounts)
-  - Path to a service‑account JSON key file.  This is the standard Google
-    "Application Default Credentials" mechanism; the code calls
-    `google.auth.default(...)`.
+* `GOOGLE_SERVICE_ACCOUNT_JSON` (recommended for cloud service accounts)
+  - service‑account JSON data of google cloud project
 
 * `RESEND_API_KEY` - for integration with Resend mail service
 
