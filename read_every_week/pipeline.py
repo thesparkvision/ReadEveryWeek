@@ -45,17 +45,18 @@ def run(dry_run: bool = False, retry_errors: bool = False) -> int:
     for article in worth_revisit_articles:
         logger.info("  %s (%s min)", article.title, article.reading_time_min)
 
-    if not primary_articles:
-        logger.info("no recommendations; skipping email")
-        return 0
+    email_sent = False
 
-    logger.info("sending recommendation email")
+    if primary_articles:
+        logger.info("sending recommendation email")
 
-    email_sent = send_recommendation_email(primary_articles, worth_revisit_articles)
+        email_sent = send_recommendation_email(primary_articles, worth_revisit_articles)
 
-    if not email_sent:
-        logger.error("email failed; aborting update")
-        return 1
+        if not email_sent:
+            logger.error("email failed; recommendations not recorded")
+
+    else:
+        logger.info("no recommendations for today")
 
     now = datetime.now(timezone.utc).isoformat(sep=" ", timespec="seconds")
     updated_by = os.environ.get("UPDATED_BY", "script")
@@ -64,20 +65,17 @@ def run(dry_run: bool = False, retry_errors: bool = False) -> int:
         article.updated_at = now
         article.updated_by = updated_by
 
-    for article in primary_articles:
-        article.recommended = True
-        article.last_recommended_at = now
+    if email_sent:
+        for article in primary_articles:
+            article.recommended = True
+            article.last_recommended_at = now
+            article.recommendation_reason = "primary_selection"
 
-        article.recommendation_reason = "primary_selection"
-
-    for article in worth_revisit_articles:
-        article.recommendation_reason = "worth_revisit"
+        for article in worth_revisit_articles:
+            article.recommendation_reason = "worth_revisit"
 
     if dry_run:
         logger.info("dry run; would update %d rows", len(articles))
     else:
         sheet.apply_updates(articles)
         logger.info("wrote %d rows", len(articles))
-
-    logger.info("pipeline complete")
-    return 0
