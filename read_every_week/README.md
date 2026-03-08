@@ -26,13 +26,3 @@ The code looks for the following environment variables at runtime:
 
 * `EMAIL_TO` - for setting the email receiver if for a single user
 
-### Local development
-
-For a local machine, download a service account key JSON file and set:
-
-```sh
-export GOOGLE_APPLICATION_CREDENTIALS="$HOME/readeveryweek-key.json"
-``` 
-
-then run the script as normal.  Be sure to share the target sheet with the
-service account's email address so it has edit access.
