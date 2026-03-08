@@ -20,7 +20,7 @@ Capture → Read → Mark → Revisit → Reflect
 
 ## Roadmap
 
-### Phase 1 — Doc → Sheet → Recommendations
+### Phase 1 — Doc → Sheet/Raindrop → Recommendations
 Automated ingestion and editorial recommendations.
 
 ### Phase 2 — Reading Interface
