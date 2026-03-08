@@ -26,11 +26,15 @@ def cli() -> None:
     pipeline.run(dry_run=not args.write, retry_errors=args.retry_errors)
 
 def run():
-    log_level = os.getenv("LOG_LEVEL", "WARNING").upper()
+    # log_level = os.getenv("LOG_LEVEL", "WARNING").upper()
 
+    # logging.basicConfig(
+    #     level=getattr(logging, log_level, logging.WARNING),
+    #     format="%(asctime)s %(levelname)s %(message)s",
+    # )
     logging.basicConfig(
-        level=getattr(logging, log_level, logging.WARNING),
-        format="%(asctime)s %(levelname)s %(message)s",
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(message)s\n",
     )
     is_dry_run = os.getenv("DRY_RUN", "true").lower() == "true"
     retry_errors = os.getenv("RETRY_ERRORS", "false").lower() == "true"
