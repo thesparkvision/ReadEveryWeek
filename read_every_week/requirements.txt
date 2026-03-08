@@ -1,0 +1,9 @@
+gspread
+google-auth
+google-auth-oauthlib
+requests
+beautifulsoup4
+lxml
+lxml_html_clean
+readability-lxml
+pytest
