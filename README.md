@@ -39,6 +39,5 @@ Summaries, insights, stats, yearly reflection.
 
 ## Status
 
-This project is evolving in public.
-Expect opinionated decisions and slow, deliberate growth.
+This is a side project that I am working on, in my free time. It might get abandoned but it might be continued too.
 
