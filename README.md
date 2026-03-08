@@ -16,42 +16,10 @@ It is:
 
 Capture → Read → Mark → Revisit → Reflect
 
-## Current Architecture
+## Sequence Flow
 
-                ┌─────────────────────┐
-                │   Article Sources   │
-                │ (Hardcoded URLs)    │
-                └──────────┬──────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │   Python Script     │
-                │  (main.py / cli)    │
-                └──────────┬──────────┘
-                           │
-        ┌──────────────────┼──────────────────┐
-        ▼                  ▼                  ▼
- ┌──────────────┐  ┌───────────────┐  ┌───────────────┐
- │ Fetch HTML   │  │ Extract Text  │  │ Reading Time  │
- │ (requests)   │  │ (article lib) │  │ (words/200)   │
- └──────────────┘  └───────────────┘  └───────────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │ Email HTML Builder  │
-                └──────────┬──────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │ Email Sender        │
-                │ (SMTP / API)        │
-                └──────────┬──────────┘
-                           │
-                           ▼
-                ┌─────────────────────┐
-                │  Your Inbox         │
-                │  ReadEveryWeek Mail │
-                └─────────────────────┘
+<img width="2234" height="1134" alt="mermaid-diagram" src="https://github.com/user-attachments/assets/5d70c92e-d863-4a3b-b143-962056110b23" />
+
                 
 ## Roadmap
 
